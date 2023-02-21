@@ -68,7 +68,7 @@ class PaypalController {
     var client = BasicAuthClient(PaypalConstant.clientID, PaypalConstant.secret);
 
     var body = {
-      'grant_type': PaypalConstant.authorizationCode,
+      'grant_type': PaypalConstant.clientCredentials,
       'response_type': PaypalConstant.token,
       'redirect_uri': PaypalConstant.redirectUri,
       'code': authCode,

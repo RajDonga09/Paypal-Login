@@ -2,16 +2,20 @@ class PayPalResponse {
   String? userId;
   String? sub;
   String? name;
+  String? payerId;
   Address? address;
+  String? verifiedAccount;
   List<Emails>? emails;
 
-  PayPalResponse({this.userId, this.sub, this.name, this.address, this.emails});
+  PayPalResponse({this.userId, this.sub, this.name, this.payerId, this.address, this.verifiedAccount, this.emails});
 
   PayPalResponse.fromJson(Map<String, dynamic> json) {
     userId = json['user_id'];
     sub = json['sub'];
     name = json['name'];
+    payerId = json['payer_id'];
     address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    verifiedAccount = json['verified_account'];
     if (json['emails'] != null) {
       emails = <Emails>[];
       json['emails'].forEach((v) {
@@ -25,9 +29,11 @@ class PayPalResponse {
     data['user_id'] = userId;
     data['sub'] = sub;
     data['name'] = name;
+    data['payer_id'] = payerId;
     if (address != null) {
       data['address'] = address!.toJson();
     }
+    data['verified_account'] = verifiedAccount;
     if (emails != null) {
       data['emails'] = emails!.map((v) => v.toJson()).toList();
     }
@@ -48,7 +54,7 @@ class Address {
     streetAddress = json['street_address'];
     locality = json['locality'];
     region = json['region'];
-    postalCode = json['postal_code'].toString();
+    postalCode = json['postal_code'];
     country = json['country'];
   }
 

@@ -5,9 +5,10 @@ class PaypalConstant {
   static const String scope = 'openid profile email address';
   static const String responseType = 'code';
   static const String authorizationCode = 'authorization_code';
+  static const String clientCredentials = 'client_credentials';
   static const String token = 'token';
   static const String devUrl = 'https://www.sandbox.paypal.com';
-  static const String prodUrl = 'https://api.paypal.com';
+  static const String prodUrl = 'https://www.paypal.com';
   static const String errorTypeUrl = '?error_uri';
   static const bool sandboxMode = true;
 
